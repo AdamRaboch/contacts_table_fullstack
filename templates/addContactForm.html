@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Contact</title>
+    
+    <link rel="stylesheet" href="static/styles.css">
+    
+</head>
+<body>
+    <h1 class="centered-header">Add Contact</h1>
+    {% if error_message %}
+    <div id="error-message">{{ error_message }}</div>
+    {% endif %}
+
+    <form action="/createContact" method="POST" enctype="multipart/form-data">
+        <label for="fullname">Name:</label>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+
+        <!-- upload photo -->
+        <div>
+            <label for="photo">Upload Photo:</label>
+            <input type="file" name="photo" id="photo">
+        </div> 
+        <br>
+        
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">I Agree</label><br><br>
+        
+        <input type="submit" value="Add to Contacts">
+    </form>
+
+    <script src="static/index.js" defer></script>
+  
+</body>
+</html>
