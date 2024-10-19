@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contacts-table-app
+  labels:
+    app: contacts-table-app
+spec:
+  replicas: 3                  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: contacts-table-app       # Update to match the new label
+  template:
+    metadata:
+      labels:
+        app: contacts-table-app      # Update to match the new label
+    spec:
+      containers:
+      - name: contacts-table-app     # Change this to your app's name
+        image: contacts-table:latest   # Specify the correct image and tag
+        ports:
+        - containerPort: 8080    # Change to the port your app listens on
+        env:
+        - name: ENV_VAR_NAME     # Add environment variables if needed
+          value: "value"         # Set their values
+        resources:               # Optionally specify resource requests/limits
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        
