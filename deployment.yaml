@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: contacts-table-app
-        image: contacts-table:latest  # Specify the correct image and tag
+        image: adamrab/contacts-table:latest  # Specify the correct image and tag
         ports:
         - containerPort: 5000         # Set to the port your app listens on
         resources:                    # Optionally specify resource requests/limits
